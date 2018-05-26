@@ -4,9 +4,9 @@
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/web1992/call-the-roll
 # Go into the repository
-cd electron-quick-start
+cd call-the-roll
 # Install dependencies
 npm install
 # Run the app
@@ -21,6 +21,8 @@ npm start
 * [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
 * [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
 * [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+
+* [Debugging Electron in VSCode](https://github.com/octref/vscode-electron-debug)
 
 ## License
 

@@ -14,6 +14,8 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  // open debug tools
+  mainWindow.webContents.openDevTools();
 
   // and load the index.html of the app.
   mainWindow.loadURL(
