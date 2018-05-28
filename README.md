@@ -1,6 +1,6 @@
 # call-the-roll
 
-## usage
+## Usage
 
 ```bash
 # Clone this repository
@@ -11,6 +11,28 @@ cd call-the-roll
 npm install
 # Run the app
 npm start
+```
+
+## Debug
+
+Electron 代码调试
+
+> you can debug in `Debug Main Process` or `Debug Renderer Process`
+
+* `Debug Main Process` is for `main.js`
+* `Debug Renderer Process` is for `renderer.js` and `helper.js`
+
+> debug 有两种模式
+
+* `Debug Main Process` 调试 `main.js`中的代码
+* `Debug Renderer Process` 调试 `renderer.js` and `helper.js`中的代码
+
+> dom 调试
+
+取消`main.js`中的代码注释，可打开`chrome`调试控制台，如下：
+
+```js
+//mainWindow.webContents.openDevTools();
 ```
 
 ## Resources for Learning Electron
