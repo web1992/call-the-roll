@@ -17,7 +17,7 @@ npm start
 
 Electron 代码调试
 
-> you can debug in `Debug Main Process` or `Debug Renderer Process`
+> you can debug use `Debug Main Process` or `Debug Renderer Process`
 
 * `Debug Main Process` is for `main.js`
 * `Debug Renderer Process` is for `renderer.js` and `helper.js`
