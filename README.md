@@ -24,6 +24,8 @@ Electron 代码调试
 
 > debug 有两种模式
 
+在 `vscode/launch.json`配置调试
+
 * `Debug Main Process` 调试 `main.js`中的代码
 * `Debug Renderer Process` 调试 `renderer.js` and `helper.js`中的代码
 
