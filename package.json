@@ -7,11 +7,22 @@
     "start": "electron ."
   },
   "repository": "https://github.com/web1992/call-the-roll",
-  "keywords": ["Electron", "call-the-roll", "start", "tutorial", "demo"],
+  "keywords": [
+    "Electron",
+    "call-the-roll",
+    "start",
+    "tutorial",
+    "demo"
+  ],
   "author": "web1992",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@tweenjs/tween.js": "tweenjs/tween.js",
+    "three": "^0.92.0",
+    "three-css3drenderer": "^1.0.1",
+    "three-trackballcontrols": "^0.0.7"
+  }
 }
