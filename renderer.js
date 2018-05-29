@@ -6,20 +6,20 @@ var utils = require("./helper.js");
 var fs = require("fs");
 var path = require("path");
 var names = [];
-
-document.getElementById("startBtn").addEventListener("click", () => {
-  utils.sayHello("vscode");
-  fs.readFile(path.join(__dirname, "names.txt"), "utf-8", function(err, data) {
-    names = [];
-    if (err) {
-      console.log(err);
-    } else {
-      var nameArr = data.split("\n");
-      for (var i = 0; i < nameArr.length; i++) {
-        let name = nameArr[i];
-        names.push(name);
-      }
-      console.log(names);
-    }
-  });
-});
+utils.sayHello("vscode");
+// document.getElementById("startBtn").addEventListener("click", () => {
+//   utils.sayHello("vscode");
+//   fs.readFile(path.join(__dirname, "names.txt"), "utf-8", function(err, data) {
+//     names = [];
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       var nameArr = data.split("\n");
+//       for (var i = 0; i < nameArr.length; i++) {
+//         let name = nameArr[i];
+//         names.push(name);
+//       }
+//       console.log(names);
+//     }
+//   });
+// });

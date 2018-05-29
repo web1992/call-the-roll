@@ -37,6 +37,11 @@ Electron 代码调试
 //mainWindow.webContents.openDevTools();
 ```
 
+## threejs
+
+* [threejs demo css3d periodictable](https://threejs.org/examples/#css3d_periodictable)
+* [source](https://github.com/mrdoob/three.js/blob/master/examples/css3d_periodictable.html)
+
 ## Resources for Learning Electron
 
 * [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
