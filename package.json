@@ -4,7 +4,8 @@
   "description": "A call the roll Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "webpack-dev-server --no-info --quiet --port 4000 --config webpack.config.js"
   },
   "repository": "https://github.com/web1992/call-the-roll",
   "keywords": [
@@ -17,7 +18,13 @@
   "author": "web1992",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.14.0",
+    "electron": "1.5.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
     "@tweenjs/tween.js": "tweenjs/tween.js",

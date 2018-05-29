@@ -3,8 +3,11 @@
 // All of the Node.js APIs are available in this process.
 
 var utils = require("./helper.js");
-var fs = require("fs");
-var path = require("path");
+// var fs = require("fs");
+// var path = require("path");
+
+//export * from "./three-3d.js";
+var three3d = require("./three-3d.js");
 var names = [];
 utils.sayHello("vscode");
 // document.getElementById("startBtn").addEventListener("click", () => {

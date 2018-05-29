@@ -10,9 +10,7 @@
       "windows": {
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
-      "args": [
-        "."
-      ]
+      "args": ["."]
     },
     {
       "name": "Debug Renderer Process",
@@ -22,10 +20,8 @@
       "windows": {
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
-      "runtimeArgs": [
-        "${workspaceRoot}/main.js",
-        "--remote-debugging-port=9222"
-      ],
+      "runtimeArgs": ["http://localhost:4000", "--remote-debugging-port=9222"],
+      "sourceMaps": true,
       "webRoot": "${workspaceRoot}"
     }
   ]
