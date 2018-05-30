@@ -176,7 +176,7 @@ function init() {
   button.addEventListener(
     "click",
     function(event) {
-      transform(targets.table, 2000);
+      transform(targets.table, 1000);
     },
     false
   );
@@ -185,7 +185,7 @@ function init() {
   button.addEventListener(
     "click",
     function(event) {
-      transform(targets.sphere, 2000);
+      transform(targets.sphere, 100);
     },
     false
   );
@@ -194,7 +194,7 @@ function init() {
   button.addEventListener(
     "click",
     function(event) {
-      transform(targets.helix, 2000);
+      transform(targets.helix, 200);
     },
     false
   );
@@ -203,7 +203,7 @@ function init() {
   button.addEventListener(
     "click",
     function(event) {
-      transform(targets.grid, 2000);
+      transform(targets.grid, 600);
     },
     false
   );

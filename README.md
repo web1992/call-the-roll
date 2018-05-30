@@ -2,7 +2,7 @@
 
 ## screenshots
 
-![](call-the-roll.png)
+![call-the-roll](call-the-roll.png)
 
 ## Usage
 
@@ -39,6 +39,13 @@ Electron 代码调试
 
 ```js
 //mainWindow.webContents.openDevTools();
+```
+
+## package
+
+```node
+    cnpm i webpack -g
+    cnpm i webpack-cli -g
 ```
 
 ## threejs
