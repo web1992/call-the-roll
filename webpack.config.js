@@ -10,7 +10,7 @@ module.exports = {
   output: {
     //path: './dist',
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dev-dist",
+    publicPath: "/dist",
     filename: "renderer.js"
   },
   module: {

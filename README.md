@@ -41,11 +41,10 @@ Electron 代码调试
 //mainWindow.webContents.openDevTools();
 ```
 
-## package
+## build
 
-```node
-    cnpm i webpack -g
-    cnpm i webpack-cli -g
+```bash
+    npm run build
 ```
 
 ## threejs
