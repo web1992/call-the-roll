@@ -18,5 +18,5 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin()],
   devtool: "eval-source-map",
-  mode: "production"
+  mode: "development"
 };

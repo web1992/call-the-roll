@@ -1,8 +1,5 @@
-//import * as THREE from "three";
 var THREE = require("three");
 var TWEEN = require("@tweenjs/tween.js");
-//import * as TWEEN from "@tweenjs/tween.js";
-//import { TrackballControls } from "three-trackballcontrols";
 var TrackballControls = require("three-trackballcontrols");
 
 import { CSS3DObject, CSS3DSprite, CSS3DRenderer } from "three-css3drenderer";
@@ -45,7 +42,7 @@ var controls;
 
 var objects = [];
 var targets = { table: [], sphere: [], helix: [], grid: [] };
-
+let timer = null;
 init();
 animate();
 
@@ -106,7 +103,7 @@ function init() {
   var spherical = new THREE.Spherical();
 
   for (var i = 0, l = objects.length; i < l; i++) {
-    var phi = Math.acos(-1 + 2 * i / l);
+    var phi = Math.acos(-1 + (2 * i) / l);
     var theta = Math.sqrt(l * Math.PI) * phi;
 
     var object = new THREE.Object3D();
@@ -208,11 +205,51 @@ function init() {
     false
   );
 
-  transform(targets.table, 2000);
+  transform(targets.grid, 800);
 
   //
 
   window.addEventListener("resize", onWindowResize, false);
+
+  // start
+
+  var button = document.getElementById("start");
+  button.addEventListener(
+    "click",
+    function(event) {
+      let random = parseInt(Math.random() * 3);
+      let t = targets.table;
+      if (0 == random) {
+        t = targets.helix;
+      }
+      if (1 == random) {
+        t = targets.grid;
+      }
+      if (2 == random) {
+        t = targets.sphere;
+      }
+
+      timer = window.setInterval(c, 1000);
+
+      function c() {
+        console.log("c...");
+        transform(t, 1000);
+      }
+    },
+    false
+  );
+
+  // stop
+
+  var button = document.getElementById("stop");
+  button.addEventListener(
+    "click",
+    function(event) {
+      console.log("stop...");
+      clearInterval(timer);
+    },
+    false
+  );
 }
 
 function transform(targets, duration) {
