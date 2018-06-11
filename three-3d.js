@@ -53,7 +53,7 @@ function init() {
     1,
     10000
   );
-  camera.position.z = 3000;
+  camera.position.z = 800;
 
   scene = new THREE.Scene();
 
@@ -88,7 +88,7 @@ function init() {
 
     objects.push(object);
 
-    //
+    // table
 
     var object = new THREE.Object3D();
     object.position.x = table[i + 3] * 300 - 1330;
