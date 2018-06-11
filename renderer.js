@@ -5,4 +5,3 @@
 const utils = require("./helper");
 const three3d = require("./three-3d.js");
 utils.sayHello("vscode");
-// namesUtils.getNames();

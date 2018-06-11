@@ -1,4 +1,4 @@
-// const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 
 exports.getNames = getNames;
@@ -20,7 +20,7 @@ function getNames(filePath) {
         let name = nameArr[i];
         namesArr.push(name);
       }
-      console.log(names);
+      console.log(namesArr);
     }
   });
 
