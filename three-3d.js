@@ -85,7 +85,7 @@ function init() {
     1,
     10000
   );
-  camera.position.z = 1000;
+  camera.position.z = 4200;
 
   scene = new THREE.Scene();
 
@@ -167,6 +167,8 @@ function init() {
     function (event) {
       console.log("start...");
       run = true;
+      _root.rotation.y = 0;
+      camera.position.z = 4200;
     },
     false
   );
@@ -180,6 +182,7 @@ function init() {
       console.log("stop...");
       run = false;
       _root.rotation.y = 0;
+      camera.position.z = 900;
     },
     false
   );
@@ -218,7 +221,6 @@ function transform(targets, duration) {
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   render();
@@ -236,11 +238,13 @@ function animate() {
 }
 
 function runControls() {
-  var time = Date.now() * 0.0002;
-  // _root.rotation.x = time;
-  _root.rotation.y = time * 0.5;
+  // 1528780371900
+  var time = Date.now() * 0.00003;
+  _root.rotation.y = time * 3.14;
+  //console.log('x'+_root.rotation.x+' y'+_root.rotation.y +' z'+_root.rotation.z  );
 }
 
 function render() {
+  //console.log( camera.position.z);
   renderer.render(scene, camera);
 }
