@@ -34,6 +34,36 @@ var table = [
   "Boron",
   "10.811",
   5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
+  5,
+  "奥巴马",
+  "Boron",
+  "10.811",
+  5,
   5
 ];
 
@@ -43,6 +73,8 @@ var controls;
 var objects = [];
 var targets = { table: [], sphere: [], helix: [], grid: [] };
 let timer = null;
+var _root;
+var run = true;
 init();
 animate();
 
@@ -53,11 +85,15 @@ function init() {
     1,
     10000
   );
-  camera.position.z = 800;
+  camera.position.z = 1000;
 
   scene = new THREE.Scene();
 
-  // table
+  _root = new THREE.Object3D();
+  scene.add(_root);
+
+
+  // createElement
 
   for (var i = 0; i < table.length; i += 5) {
     var element = document.createElement("div");
@@ -85,62 +121,9 @@ function init() {
     object.position.y = Math.random() * 4000 - 2000;
     object.position.z = Math.random() * 4000 - 2000;
     scene.add(object);
-
+    // push
+    _root.add(object);
     objects.push(object);
-
-    // table
-
-    var object = new THREE.Object3D();
-    object.position.x = table[i + 3] * 300 - 1330;
-    object.position.y = -(table[i + 4] * 350) + 990;
-
-    targets.table.push(object);
-  }
-
-  // sphere
-
-  var vector = new THREE.Vector3();
-  var spherical = new THREE.Spherical();
-
-  for (var i = 0, l = objects.length; i < l; i++) {
-    var phi = Math.acos(-1 + (2 * i) / l);
-    var theta = Math.sqrt(l * Math.PI) * phi;
-
-    var object = new THREE.Object3D();
-
-    spherical.set(800, phi, theta);
-
-    object.position.setFromSpherical(spherical);
-
-    vector.copy(object.position).multiplyScalar(2);
-
-    object.lookAt(vector);
-
-    targets.sphere.push(object);
-  }
-
-  // helix
-
-  var vector = new THREE.Vector3();
-  var cylindrical = new THREE.Cylindrical();
-
-  for (var i = 0, l = objects.length; i < l; i++) {
-    var theta = i * 0.175 + Math.PI;
-    var y = -(i * 8) + 450;
-
-    var object = new THREE.Object3D();
-
-    cylindrical.set(900, theta, y);
-
-    object.position.setFromCylindrical(cylindrical);
-
-    vector.x = object.position.x * 2;
-    vector.y = object.position.y;
-    vector.z = object.position.z * 2;
-
-    object.lookAt(vector);
-
-    targets.helix.push(object);
   }
 
   // grid
@@ -151,63 +134,28 @@ function init() {
     object.position.x = (i % 5) * 400 - 800;
     object.position.y = -(Math.floor(i / 5) % 5) * 400 + 800;
     object.position.z = Math.floor(i / 25) * 1000 - 2000;
-
     targets.grid.push(object);
   }
 
-  //
+  // renderer
 
   renderer = new CSS3DRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById("container").appendChild(renderer.domElement);
 
-  //
+  // controls
 
   controls = new TrackballControls(camera, renderer.domElement);
-  controls.rotateSpeed = 0.5;
+  controls.rotateSpeed = 0.3;
   controls.minDistance = 500;
   controls.maxDistance = 6000;
   controls.addEventListener("change", render);
 
-  var button = document.getElementById("table");
-  button.addEventListener(
-    "click",
-    function(event) {
-      transform(targets.table, 1000);
-    },
-    false
-  );
 
-  var button = document.getElementById("sphere");
-  button.addEventListener(
-    "click",
-    function(event) {
-      transform(targets.sphere, 100);
-    },
-    false
-  );
-
-  var button = document.getElementById("helix");
-  button.addEventListener(
-    "click",
-    function(event) {
-      transform(targets.helix, 200);
-    },
-    false
-  );
-
-  var button = document.getElementById("grid");
-  button.addEventListener(
-    "click",
-    function(event) {
-      transform(targets.grid, 600);
-    },
-    false
-  );
-
+  // gird
   transform(targets.grid, 800);
 
-  //
+  // 
 
   window.addEventListener("resize", onWindowResize, false);
 
@@ -216,25 +164,9 @@ function init() {
   var button = document.getElementById("start");
   button.addEventListener(
     "click",
-    function(event) {
-      let random = parseInt(Math.random() * 3);
-      let t = targets.table;
-      if (0 == random) {
-        t = targets.helix;
-      }
-      if (1 == random) {
-        t = targets.grid;
-      }
-      if (2 == random) {
-        t = targets.sphere;
-      }
-
-      timer = window.setInterval(c, 1000);
-
-      function c() {
-        console.log("c...");
-        transform(t, 1000);
-      }
+    function (event) {
+      console.log("start...");
+      run = true;
     },
     false
   );
@@ -244,9 +176,10 @@ function init() {
   var button = document.getElementById("stop");
   button.addEventListener(
     "click",
-    function(event) {
+    function (event) {
       console.log("stop...");
-      clearInterval(timer);
+      run = false;
+      _root.rotation.y = 0;
     },
     false
   );
@@ -295,8 +228,17 @@ function animate() {
   requestAnimationFrame(animate);
 
   TWEEN.update();
-
   controls.update();
+  if (run) {
+    runControls()
+  }
+  render();
+}
+
+function runControls() {
+  var time = Date.now() * 0.0002;
+  // _root.rotation.x = time;
+  _root.rotation.y = time * 0.5;
 }
 
 function render() {
