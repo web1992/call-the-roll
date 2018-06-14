@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // 入口
-  entry: "./renderer.js",
+  entry: "./src/renderer.js",
   // 输出
   output: {
     //path: './dist',
